@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 
 const Layout = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggleSidebar = () => {
-        setIsOpen((prevIsOpen) => !prevIsOpen);
-    };
+    const [isOpen, setIsOpen] = useState(true);
 
     return (
         <>
             <div class="min-h-screen flex flex-col">
-                <header class="bg-red-50 bg-pink-300 h-25">
+                {/* NAV + SIDE BAR */}
+                <header class=" h-16">
+                    {/* SIDEBAR HERE */}
                     <aside id="default-sidebar" class={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700 aria-label="Sidebar"`}>
                         <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
                             <ul class="space-y-4 font-normal">
@@ -460,8 +458,9 @@ const Layout = () => {
                                 </li>
                             </ul>
                         </div>
-                    </aside>
+                    </aside >
 
+                    {/* NAVBAR HERE */}
                     <nav class="bg-white border-white px-4 lg:px-6 py-2.5">
                         <div class="flex flex-wrap justify-between items-left mx-auto w-screen-xl p-0">
                             <button
@@ -534,40 +533,695 @@ const Layout = () => {
                         </div>
 
                     </nav>
-                </header>
 
+                </header>
+                {/* CONTENT BODY PAGE */}
                 <div class="flex-1 flex flex-col sm:flex-row">
-                    <main class="flex-1 bg-indigo-100 p-2">
-                        <di class="flex-1 bg-indigo-100 p-2">
-                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                                <div class="flex flex-col bg-green-100 rounded-2xl shadow-xl">
-                                    <div class="flex flex-col justify-start p-4 text-left flex top-0 text-3xl bg-lime-500 rounded-t-lg">Thắng thua hôm nay</div>
-                                    <div class="flex flex-col justify-center p-10 text-center text-7xl bg-green-200 rounded-b-lg">0</div>
-                                </div>
-                                <div class="flex flex-col bg-green-100 rounded-2xl shadow-xl">
-                                    <div class="flex flex-col justify-start p-4 text-left flex top-0 text-3xl bg-blue-400 rounded-t-lg">Thắng thua hôm qua</div>
-                                    <div class="flex flex-col justify-center p-10 text-center text-7xl bg-blue-300 rounded-b-lg">0</div>
-                                </div>
-                                <div class="flex flex-col bg-green-100 rounded-2xl shadow-xl">
-                                    <div class="flex flex-col justify-start p-4 text-left flex top-0 text-3xl bg-yellow-300 rounded-t-lg">Tổng tiền chưa xử lý</div>
-                                    <div class="flex flex-col justify-center p-10 text-center text-7xl bg-yellow-200 rounded-b-lg">0</div>
-                                </div>
-                                <div class="flex flex-col bg-green-100 rounded-2xl shadow-xl">
-                                    <div class="flex flex-col justify-start p-4 text-left flex top-0 text-3xl bg-red-300 rounded-t-lg">Khách hàng trực tuyến</div>
-                                    <div class="flex flex-col justify-center p-10 text-center text-7xl bg-red-100 rounded-b-lg">24</div>
+                    {/* GRAPH  */}
+                    <main class="flex-1  grid grid-rows-1 gap-6 p-6 ">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div class="flex flex-col rounded-2xl shadow-xl">
+                                <div class="flex flex-col justify-start p-4 text-left flex top-0 text-3xl bg-lime-500 rounded-t-lg">Thắng thua hôm nay</div>
+                                <div class="flex flex-col justify-center p-10 text-center text-7xl bg-green-200 rounded-b-lg">0</div>
+                            </div>
+                            <div class="flex flex-col rounded-2xl shadow-xl">
+                                <div class="flex flex-col justify-start p-4 text-left flex top-0 text-3xl bg-blue-400 rounded-t-lg">Thắng thua hôm qua</div>
+                                <div class="flex flex-col justify-center p-10 text-center text-7xl bg-blue-300 rounded-b-lg">0</div>
+                            </div>
+                            <div class="flex flex-col rounded-2xl shadow-xl">
+                                <div class="flex flex-col justify-start p-4 text-left flex top-0 text-3xl bg-yellow-300 rounded-t-lg">Tổng tiền chưa xử lý</div>
+                                <div class="flex flex-col justify-center p-10 text-center text-7xl bg-yellow-200 rounded-b-lg">0</div>
+                            </div>
+                            <div class="flex flex-col rounded-2xl shadow-xl">
+                                <div class="flex flex-col justify-start p-4 text-left flex top-0 text-3xl bg-red-300 rounded-t-lg">Khách hàng trực tuyến</div>
+                                <div class="flex flex-col justify-center p-10 text-center text-7xl bg-red-100 rounded-b-lg">24</div>
+                            </div>
+                        </div>
+                        {/* TABLE */}
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div class="flex flex-col rounded-2xl shadow-xl">
+                                <div class="flex flex-col justify-start p-4 text-left flex top-0 text-xl bg-gray-400 rounded-t-lg text-2xl ">Hội viên thắng trong tuần</div>
+                                <div class="flex flex-col p-auto rounded-b-lg">
+                                    <div class="relative overflow-x-auto shadow-md">
+                                        <table class="w-full text-sm text-left">
+                                            <thead class="text-xs text-gray-500 uppercase bg-gray-300 border-l border-2 border-gray-400">
+                                                <tr>
+                                                    <th scope="col" class="px-6 py-3 text-center border-l border-gray-400">
+                                                        #
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3 text-left border-l border-gray-400">
+                                                        Hội viên
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3 text-right border-l border-gray-400">
+                                                        Số tiền
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3 text-left border-l border-gray-400">
+                                                        Tổng đạt thưởng
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            {/*  */}
+                                            <tbody>
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        2
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="flex flex-col rounded-2xl shadow-xl">
+                                <div class="flex flex-col justify-start p-4 text-left flex top-0 text-xl bg-gray-400  rounded-t-lg text-2xl ">Hội viên thua trong tuần</div>
+                                <div class="flex flex-col p-auto rounded-b-lg">
+                                    <div class="relative overflow-x-auto shadow-md">
+                                        <table class="w-full text-sm text-left text-blue-100 dark:text-blue-100">
+                                            <thead class="text-xs text-gray-500 uppercase bg-gray-300 border-l border-2 border-gray-400">
+                                                <tr>
+                                                    <th scope="col" class="px-6 py-3 text-center border-l border-gray-400">
+                                                        #
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3 text-left border-l border-gray-400">
+                                                        Hội viên
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3 text-right border-l border-gray-400">
+                                                        Số tiền
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3 text-left border-l border-gray-400">
+                                                        Tổng đạt thưởng
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            {/*  */}
+                                            <tbody>
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
 
-                        </di>
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        2
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col rounded-2xl shadow-xl">
+                                <div class="flex flex-col justify-start p-4 text-left flex top-0 text-xl bg-gray-400  rounded-t-lg text-2xl ">Hội viên cược trong tuần</div>
+                                <div class="flex flex-col p-auto rounded-b-lg">
+                                    <div class="relative overflow-x-auto shadow-md">
+                                        <table class="w-full text-sm text-left text-blue-100 dark:text-blue-100">
+                                            <thead class="text-xs text-gray-500 uppercase bg-gray-300 border-l border-2 border-gray-400">
+                                                <tr>
+                                                    <th scope="col" class="px-6 py-3 text-center border-l border-gray-400">
+                                                        #
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3 text-left border-l border-gray-400">
+                                                        Hội viên
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3 text-right border-l border-gray-400">
+                                                        Số tiền
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3 text-left border-l border-gray-400">
+                                                        Tổng đạt thưởng
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            {/*  */}
+                                            <tbody>
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        2
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col rounded-2xl shadow-xl">
+                                <div class="flex flex-col justify-start p-4 text-left flex top-0 text-xl bg-gray-400  rounded-t-lg text-2xl">Tình trạng tài khoản</div>
+                                <div class="flex flex-col p-auto rounded-b-lg">
+                                    <div class="relative overflow-x-auto shadow-md">
+                                        <table class="w-full text-sm text-left text-blue-100 dark:text-blue-100">
+                                            <thead class="text-xs text-gray-500 uppercase bg-gray-300 border-l border-2 border-gray-400">
+                                                <tr>
+                                                    <th scope="col" class="px-6 py-3 text-center border-l border-gray-400">
+                                                        #
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3 text-left border-l border-gray-400">
+                                                        Hội viên
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3 text-right border-l border-gray-400">
+                                                        Số tiền
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3 text-left border-l border-gray-400">
+                                                        Tổng đạt thưởng
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            {/*  */}
+                                            <tbody>
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        2
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+                                                {/*  */}
+                                                <tr class="bg-white border-l border-2 border-gray-400 font-medium">
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        1
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-center">
+                                                        anh01902
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-red-500 text-right">
+                                                        -111,872,180
+                                                    </td>
+                                                    <td class="px-6 py-4 border-l border-gray-400 text-black text-right">
+
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </main>
 
-                    <nav class="order-first hidden md:block bg-purple-200 w-36"></nav>
+                    <nav class="order-first hidden md:block w-48"></nav>
 
-                    <aside class="hidden md:block bg-yellow-100 w-7 "></aside>
+                    <aside class="hidden md:block w-7 "></aside>
                 </div>
 
-                <footer class="bg-gray-100 p-2"></footer>
+                <footer class=" p-2"></footer>
             </div>
+
 
 
 
