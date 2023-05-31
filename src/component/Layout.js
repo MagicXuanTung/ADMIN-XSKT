@@ -9,8 +9,8 @@ const Layout = () => {
                 {/* NAV + SIDE BAR */}
                 <header class=" h-16">
                     {/* SIDEBAR HERE */}
-                    <aside id="default-sidebar" class={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700 aria-label="Sidebar"`}>
-                        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+                    <aside id="default-sidebar" class={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700 aria-label="Sidebar"`}>
+                        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-900">
                             <ul class="space-y-4 font-normal">
                                 <div class="px-1 py-1 lg:px-5 lg:pl-50">
                                     <div class="col-span-1">
@@ -20,7 +20,7 @@ const Layout = () => {
                                                     <img src="Logo.jpg" class="h-12 mr-1" alt="Logo.jpg" />
                                                 </div>
                                                 <div class="flex flex-col items-left">
-                                                    <span class=" text-base sm:text-xl whitespace-nowrap dark:text-white">ONE789</span>
+                                                    <span class=" text-base sm:text-xl whitespace-nowrap text-white">ONE789</span>
                                                     <span class=" text-xs text-blue-400 whitespace-nowrap ">TỔNG ĐẠI LÝ</span>
                                                 </div>
                                             </div>
@@ -50,7 +50,7 @@ const Layout = () => {
                                     </div>
                                 </div>
                                 <li>
-                                    <a href="#" class="flex items-center p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                                    <a href="#" class="flex items-center p-1 text-gray-900 rounded-lg text-white hover:bg-blue-600 dark:hover:bg-blue-600">
                                         <svg width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M3.5 3.5H10.5V10.5H3.5V3.5Z" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                             <path d="M3.5 13.5H10.5V20.5H3.5V13.5Z" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -65,7 +65,7 @@ const Layout = () => {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="flex items-center p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                                    <a href="#" class="flex items-center p-1 text-gray-900 rounded-lg text-white hover:bg-blue-600 dark:hover:bg-blue-600">
                                         <svg width="1.5em" height="1.5em" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path fill="#FFFFFF" d="M640 832a128 128 0 0 1-256 0h256zm192-64H134.4a38.4 38.4 0 0 1 0-76.8H192V448c0-154.88 110.08-284.16 256.32-313.6a64 64 0 1 1 127.36 0A320.128 320.128 0 0 1 832 448v243.2h57.6a38.4 38.4 0 0 1 0 76.8H832z" /></svg>
                                         <span class="flex-1 ml-3 whitespace-nowrap">THÔNG BÁO</span>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" fill="#FFFFFF">
@@ -74,7 +74,7 @@ const Layout = () => {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="flex items-center p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                                    <a href="#" class="flex items-center p-1 text-gray-900 rounded-lg text-white hover:bg-blue-600 dark:hover:bg-blue-600">
 
                                         <svg width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M4 5V19C4 19.5523 4.44772 20 5 20H19" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -87,7 +87,7 @@ const Layout = () => {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="flex items-center p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                                    <a href="#" class="flex items-center p-1 text-gray-900 rounded-lg text-white hover:bg-blue-600 dark:hover:bg-blue-600">
                                         <svg width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M12 7.49976V19.5M12 7.49976L13.7333 6.6332C14.5663 6.21673 15.4849 5.9999 16.4162 5.99988L18.9999 5.99981C20.1045 5.99978 21 6.89522 21 7.99981V15.9998C21 17.1043 20.1046 17.9998 19 17.9998H16.4166C15.485 17.9998 14.5662 18.2167 13.733 18.6334L12 19.5M12 7.49976L10.2667 6.63326C9.43369 6.21681 8.51514 5.99999 7.58379 5.99999H5C3.89543 5.99999 3 6.89543 3 8V16C3 17.1046 3.89543 18 5 18H7.58359C8.51506 18 9.43374 18.2169 10.2669 18.6334L12 19.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
@@ -98,7 +98,7 @@ const Layout = () => {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="flex items-center p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                                    <a href="#" class="flex items-center p-1 text-gray-900 rounded-lg text-white hover:bg-blue-600 dark:hover:bg-blue-600">
                                         <svg width="1.5em" height="1.5em" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
 
                                             <g id="a">
@@ -278,7 +278,7 @@ const Layout = () => {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="flex items-center p-1 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                                    <a href="#" class="flex items-center p-1 text-gray-900 rounded-lg text-white hover:bg-blue-600 dark:hover:bg-blue-600">
                                         <svg width="1.5em" height="1.5em" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
 
                                             <g id="a">
@@ -1214,9 +1214,9 @@ const Layout = () => {
                         </div>
                     </main>
 
-                    <nav class="order-first hidden md:block w-48"></nav>
+                    <nav class="order-first hidden md:block w-7"></nav>
 
-                    <aside class="hidden md:block w-7 "></aside>
+                    <aside class="hidden md:block w-1 "></aside>
                 </div>
 
                 <footer class=" p-2"></footer>
